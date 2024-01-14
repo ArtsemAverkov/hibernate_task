@@ -1,0 +1,26 @@
+
+CREATE TABLE house (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    uuid VARCHAR(255),
+    area DOUBLE,
+    country VARCHAR(255),
+    city VARCHAR(255),
+    street VARCHAR(255),
+    number VARCHAR(255),
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+CREATE TABLE person (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    uuid VARCHAR(255),
+    name VARCHAR(255),
+    surname VARCHAR(255),
+    sex VARCHAR(10),
+    passport_series VARCHAR(10),
+    passport_number VARCHAR(20),
+    create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    house_id INT,
+    FOREIGN KEY (house_id) REFERENCES house(id)
+);
